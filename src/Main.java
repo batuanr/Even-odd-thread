@@ -3,6 +3,11 @@ public class Main {
         OddThread oddThread = new OddThread("odd");
         EvenThread evenThread = new EvenThread("even");
         oddThread.getThread().start();
+        try {
+            oddThread.getThread().join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         evenThread.getThread().start();
     }
 }
